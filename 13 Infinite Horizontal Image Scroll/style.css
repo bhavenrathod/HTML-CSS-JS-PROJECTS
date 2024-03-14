@@ -1,0 +1,61 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: #f2f2f2;
+}
+
+/* animation definiton */
+@keyframes slide {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.logos {
+  overflow: hidden;
+  padding: 50px 0;
+  background: #fff;
+  white-space: nowrap;
+  position: relative;
+}
+
+.logos:hover .slider {
+  animation-play-state: paused;
+}
+
+.slider {
+  display: inline-block;
+  animation: 10s slide linear infinite;
+}
+
+.logos .slider img {
+  height: 50px;
+  margin: 0 50px;
+}
+
+.logos::before,
+.logos::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 200px;
+  z-index: 2;
+}
+
+.logos::after {
+  background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  right: 0;
+}
+
+.logos::before {
+  background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  left: 0;
+}
